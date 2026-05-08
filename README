@@ -1,0 +1,143 @@
+PlantCoin Bot
+
+PlantCoin is a Telegram reward bot written in Rust that aims to create a sustainable micro-reward ecosystem where users can earn small payouts through tasks and interactions.
+
+The project is built using async Rust, focusing on performance, reliability, and long-term scalability.
+
+⚠️ The project is currently in early development and features may change as the platform evolves.
+
+Features
+
+Current implemented features:
+
+Telegram bot built with Teloxide
+SQLite database for user storage
+Automatic user registration
+Balance tracking system
+Basic reward harvesting system
+Inline keyboard interaction
+Command handling system
+
+Example commands:
+
+/start
+/username
+/saldo
+/colher
+
+Inline buttons allow users to:
+
+check their username
+view balance
+claim rewards
+Project Goals
+
+The long-term vision of PlantCoin is to evolve into a Telegram-based reward platform combining elements such as:
+
+Faucet mechanics
+Micro-tasks
+Ad-based rewards
+Investment or staking systems
+Automated payouts
+
+The goal is to build a sustainable reward ecosystem that can operate long-term.
+
+Tech Stack
+
+PlantCoin is built with modern Rust async technologies.
+
+Core stack:
+
+Rust (Edition 2024)
+Tokio (async runtime)
+Teloxide (Telegram bot framework)
+SQLite (database)
+Rusqlite (SQLite bindings)
+Dotenvy (environment variables)
+Pretty Env Logger (logging)
+Architecture
+
+The project currently uses a simple modular structure:
+
+src/
+ ├── main.rs
+ ├── banco.rs
+ └── telegram.rs
+main.rs
+
+Handles:
+
+bot initialization
+dispatcher setup
+database initialization
+banco.rs
+
+Responsible for:
+
+SQLite connection
+user storage
+balance management
+telegram.rs
+
+Handles:
+
+command processing
+callback queries
+Telegram interactions
+Installation
+
+Clone the repository:
+
+git clone https://github.com/thesomeypo/TGPlantCoin_bot.git
+cd plantcoin_bot
+
+Create a .env file:
+
+TELOXIDE_TOKEN=your_telegram_bot_token
+
+Run the bot:
+
+cargo run
+
+The SQLite database will be created automatically.
+
+Database
+
+Current database schema:
+
+usuarios
+---------
+id
+telegram_id
+saldo
+colheita_cooldown
+
+Each user is automatically inserted on first interaction.
+
+Development Status
+
+Current stage:
+
+Early prototype
+
+Planned features:
+
+reward cooldown system
+shortlink integration
+ad rewards
+withdrawal system
+anti abuse protection
+multi reward sources
+admin tools
+logging improvements
+Disclaimer
+
+PlantCoin is an experimental project currently under development.
+
+The reward model, payout structure, and platform mechanics may change as the project evolves.
+
+This repository mainly serves as a technical implementation of a Telegram reward platform using Rust.
+
+License
+
+GPLv3 License

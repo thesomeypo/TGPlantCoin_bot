@@ -13,6 +13,7 @@ dependencies = [
  "rusqlite",
  "teloxide",
  "tokio",
+ "uuid",
 ]
 
 [[package]]

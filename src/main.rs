@@ -1,5 +1,7 @@
 mod banco;
 mod telegram;
+mod shortlink;
+mod payout;
 
 use teloxide::prelude::*;
 use dotenvy::dotenv;
@@ -20,7 +22,8 @@ async fn main() {
 
     let handler = dptree::entry()
         .branch(Update::filter_message().filter_command::<telegram::Command>().endpoint(telegram::answer))
-        .branch(Update::filter_callback_query().endpoint(telegram::cb_handler));
+        .branch(Update::filter_callback_query().endpoint(telegram::cb_handler))
+        .branch(Update::filter_message().endpoint(telegram::receber_texto));
 
     Dispatcher::builder(bot, handler)
         .enable_ctrlc_handler()
